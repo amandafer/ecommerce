@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
+import SwiftKeychainWrapper
 
 class SignInController: UIViewController {
 
@@ -24,8 +25,8 @@ class SignInController: UIViewController {
             } else {
                 print("Logged in")
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                
                 self.firebaseAuth(credential)
+                self.showHomeView()
             }
         }
     }
@@ -36,8 +37,26 @@ class SignInController: UIViewController {
                 print("Unable to authenticate with Firebase.")
             } else {
                 print("Successufully authenticated with Firebase.")
+                // Sets the keychain
+                if let user = user {
+                    KeychainWrapper.standard.set(user.uid, forKey: "uid")
+                }
             }
         })
+    }
+    
+    func showHomeView() {
+        let protectedPage = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        let protectedPageNav = UINavigationController(rootViewController: protectedPage)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        appDelegate.window?.rootViewController = protectedPageNav
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: "uid") {
+            self.showHomeView()
+        }
     }
     
     override func viewDidLoad() {

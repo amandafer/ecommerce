@@ -16,8 +16,9 @@
 		DC8D45881EA1237D00CD6BE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8D45861EA1237D00CD6BE2 /* LaunchScreen.storyboard */; };
 		DC8D45931EA1237D00CD6BE2 /* ecommerceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45921EA1237D00CD6BE2 /* ecommerceTests.swift */; };
 		DC8D459E1EA1237D00CD6BE2 /* ecommerceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D459D1EA1237D00CD6BE2 /* ecommerceUITests.swift */; };
-		DC8D45AE1EA126D800CD6BE2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45AD1EA126D800CD6BE2 /* TableViewController.swift */; };
+		DC8D45AE1EA126D800CD6BE2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45AD1EA126D800CD6BE2 /* SettingsController.swift */; };
 		DC8D45B41EA14D5000CD6BE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8D45B31EA14D5000CD6BE2 /* GoogleService-Info.plist */; };
+		DC8D45B71EA1699300CD6BE2 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45B61EA1699300CD6BE2 /* HomeController.swift */; };
 		FE96863D8E80EF01E346180E /* Pods_ecommerceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCD31C65D24D6457CE5F28A /* Pods_ecommerceUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,9 +61,11 @@
 		DC8D45991EA1237D00CD6BE2 /* ecommerceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ecommerceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8D459D1EA1237D00CD6BE2 /* ecommerceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ecommerceUITests.swift; sourceTree = "<group>"; };
 		DC8D459F1EA1237D00CD6BE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC8D45AD1EA126D800CD6BE2 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		DC8D45AD1EA126D800CD6BE2 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		DC8D45B31EA14D5000CD6BE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC8D45B51EA14DDD00CD6BE2 /* ecommerce-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecommerce-Bridging-Header.h"; sourceTree = "<group>"; };
+		DC8D45B61EA1699300CD6BE2 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		DC8D45B81EA1796800CD6BE2 /* ecommerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ecommerce.entitlements; sourceTree = "<group>"; };
 		EF8D551AE546971FED85A610 /* Pods-ecommerceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ecommerceTests/Pods-ecommerceTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +146,7 @@
 		DC8D457C1EA1237D00CD6BE2 /* ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				DC8D45B81EA1796800CD6BE2 /* ecommerce.entitlements */,
 				DC8D45AC1EA125F500CD6BE2 /* Controller */,
 				DC8D45AB1EA125ED00CD6BE2 /* View */,
 				DC8D457D1EA1237D00CD6BE2 /* AppDelegate.swift */,
@@ -184,7 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				DC8D457F1EA1237D00CD6BE2 /* SignInController.swift */,
-				DC8D45AD1EA126D800CD6BE2 /* TableViewController.swift */,
+				DC8D45AD1EA126D800CD6BE2 /* SettingsController.swift */,
+				DC8D45B61EA1699300CD6BE2 /* HomeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,8 +271,14 @@
 				TargetAttributes = {
 					DC8D45791EA1237D00CD6BE2 = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = KFC25KK57P;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					DC8D458D1EA1237D00CD6BE2 = {
 						CreatedOnToolsVersion = 8.3;
@@ -472,8 +483,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8D45B71EA1699300CD6BE2 /* HomeController.swift in Sources */,
 				DC8D45801EA1237D00CD6BE2 /* SignInController.swift in Sources */,
-				DC8D45AE1EA126D800CD6BE2 /* TableViewController.swift in Sources */,
+				DC8D45AE1EA126D800CD6BE2 /* SettingsController.swift in Sources */,
 				DC8D457E1EA1237D00CD6BE2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +642,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ecommerce/ecommerce.entitlements;
+				DEVELOPMENT_TEAM = KFC25KK57P;
 				INFOPLIST_FILE = ecommerce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amandafernandes.ecommerce;
@@ -646,6 +660,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ecommerce/ecommerce.entitlements;
+				DEVELOPMENT_TEAM = KFC25KK57P;
 				INFOPLIST_FILE = ecommerce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amandafernandes.ecommerce;

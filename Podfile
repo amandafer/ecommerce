@@ -10,6 +10,7 @@ target 'ecommerce' do
   pod 'Firebase/Auth'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'SwiftKeychainWrapper'
 
   target 'ecommerceTests' do
     inherit! :search_paths
