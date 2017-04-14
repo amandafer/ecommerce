@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Facebook
-    @nonobjc func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 

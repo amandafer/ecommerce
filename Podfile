@@ -7,6 +7,7 @@ target 'ecommerce' do
 
   # Pods for ecommerce
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
 
