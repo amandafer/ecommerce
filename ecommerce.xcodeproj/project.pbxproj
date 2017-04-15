@@ -56,7 +56,7 @@
 		CE30563403D85080DE578F56 /* Pods_ecommerceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ecommerceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CD5EB05FE9F99B30189EE0 /* Pods-ecommerceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ecommerceTests/Pods-ecommerceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC8D457A1EA1237D00CD6BE2 /* ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC8D457D1EA1237D00CD6BE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC8D457D1EA1237D00CD6BE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ecommerce/AppDelegate.swift; sourceTree = "<group>"; };
 		DC8D457F1EA1237D00CD6BE2 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		DC8D45821EA1237D00CD6BE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC8D45841EA1237D00CD6BE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +137,7 @@
 		DC8D45711EA1237C00CD6BE2 = {
 			isa = PBXGroup;
 			children = (
+				DC8D457D1EA1237D00CD6BE2 /* AppDelegate.swift */,
 				DC8D45B51EA14DDD00CD6BE2 /* ecommerce-Bridging-Header.h */,
 				DC8D457C1EA1237D00CD6BE2 /* ecommerce */,
 				DC8D45911EA1237D00CD6BE2 /* ecommerceTests */,
@@ -165,7 +166,6 @@
 				DC8D45BA1EA1956A00CD6BE2 /* Model */,
 				DC8D45AC1EA125F500CD6BE2 /* Controller */,
 				DC8D45AB1EA125ED00CD6BE2 /* View */,
-				DC8D457D1EA1237D00CD6BE2 /* AppDelegate.swift */,
 				DC8D45811EA1237D00CD6BE2 /* Main.storyboard */,
 				DC8D45841EA1237D00CD6BE2 /* Assets.xcassets */,
 				DC8D45861EA1237D00CD6BE2 /* LaunchScreen.storyboard */,

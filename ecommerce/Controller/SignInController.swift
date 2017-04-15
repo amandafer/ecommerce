@@ -19,11 +19,11 @@ class SignInController: UIViewController {
         
         facebookLogin.logIn(withReadPermissions: permissions, from: self) { (result, error) in
             if (error != nil) {
-                print("Unable to authenticate with Facebook.")
+                print("CONSOLE: Unable to authenticate with Facebook.")
             } else if (result?.isCancelled)! {
-                print("User cancelled authentication with Facebook.")
+                print("CONSOLE: User cancelled authentication with Facebook.")
             } else {
-                print("Logged in")
+                print("CONSOLE: Logged in")
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.firebaseAuth(credential)
                 self.showHomeView()
@@ -34,9 +34,9 @@ class SignInController: UIViewController {
     func firebaseAuth(_ credential: FIRAuthCredential) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if (error != nil) {
-                print("Unable to authenticate with Firebase.")
+                print("CONSOLE: Unable to authenticate with Firebase.")
             } else {
-                print("Successufully authenticated with Firebase.")
+                print("CONSOLE: Successufully authenticated with Firebase.")
                 // Sets the keychain
                 if let user = user {
                     // save the details in firebase database
@@ -51,11 +51,14 @@ class SignInController: UIViewController {
     }
     
     func showHomeView() {
+        performSegue(withIdentifier: "home", sender: nil)
+        /* Table view doesnt work when user log in
         let protectedPage = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         let protectedPageNav = UINavigationController(rootViewController: protectedPage)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         appDelegate.window?.rootViewController = protectedPageNav
+        */
     }
     
     override func viewDidAppear(_ animated: Bool) {

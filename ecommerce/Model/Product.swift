@@ -10,7 +10,7 @@ import Foundation
 
 class Product {
     private var _productID: String!
-    private var _images: [String]!
+    private var _image: String!
     private var _name: String!
     private var _price: Double!
     private var _description: String!
@@ -18,8 +18,8 @@ class Product {
     var productID: String {
         return _productID
     }
-    var images: [String] {
-        return _images
+    var imageUrl: String {
+        return _image
     }
     var name: String {
         return _name
@@ -31,9 +31,9 @@ class Product {
         return _description
     }
     
-    init(name: String, img: [String], price: Double, desc: String) {
+    init(name: String, img: String, price: Double, desc: String) {
         self._name = name
-        self._images = img
+        self._image = img
         self._price = price
         self._description = desc
     }
@@ -44,8 +44,8 @@ class Product {
         if let name = productData["name"] as? String {
             self._name = name
         }
-        if let img = productData["images"] as? [String] {
-            self._images = img
+        if let img = productData["image"] as? String {
+            self._image = img
         }
         if let price = productData["price"] as? Double {
             self._price = price

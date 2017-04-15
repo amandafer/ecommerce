@@ -16,13 +16,13 @@ class SettingsController: UIViewController {
         let firebaseAuth = FIRAuth.auth()
         do {
             try firebaseAuth?.signOut()
-            print("Logged out")
+            print("CONSOLE: Logged out")
             
             KeychainWrapper.standard.removeObject(forKey: "uid")
             performSegue(withIdentifier: "goToLogin", sender: nil)
             
         } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+            print ("CONSOLE: Error signing out: %@", signOutError)
         }
     }
     

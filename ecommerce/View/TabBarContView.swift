@@ -19,7 +19,14 @@ class ColourTab: UITabBarController {
     
     @IBInspectable var textColor: UIColor? {
         didSet {
-            self.tabBar.tintColor = textColor
+            //self.tabBar.tintColor = textColor
+            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: textColor!], for: .normal)
+        }
+    }
+    
+    @IBInspectable var selectedTextColor: UIColor? {
+        didSet {
+            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedTextColor!], for: .selected)
         }
     }
 }

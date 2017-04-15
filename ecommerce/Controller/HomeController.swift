@@ -10,10 +10,13 @@ import UIKit
 import FirebaseDatabase
 
 class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     @IBOutlet weak var tableView: UITableView!
-    var products = [Product]()
     
+    var products = [Product]()
+    var imagePicker: UIImagePickerController!
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    
+    // Table view functions
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count;
     }
@@ -22,16 +25,24 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let product = products[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? PostCellController {
-            cell.configureCell(product: product)
-            return cell
+            let img = product.imageUrl
+            
+            if let image = HomeController.imageCache.object(forKey: img as NSString) {
+                cell.configureCell(product: product, img: image)
+                return cell
+            } else {
+                cell.configureCell(product: product)
+                return cell
+            }
         } else {
             return PostCellController()
         }
     }
 
+    // Loads the products to the table view
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         DataService.dataService.REF_PRODUCTS.observe(.value, with: { (snapshot) in
             // Gets an array of products from database
@@ -48,7 +59,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.tableView.reloadData()
         })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
