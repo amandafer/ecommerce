@@ -15,6 +15,9 @@ PODS:
   - Firebase/Core (3.15.0):
     - FirebaseAnalytics (= 3.7.0)
     - FirebaseCore (= 3.5.2)
+  - Firebase/Database (3.15.0):
+    - Firebase/Core
+    - FirebaseDatabase (= 3.1.2)
   - FirebaseAnalytics (3.7.0):
     - FirebaseCore (~> 3.5)
     - FirebaseInstanceID (~> 1.0)
@@ -25,6 +28,8 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseCore (3.5.2):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseDatabase (3.1.2):
+    - FirebaseAnalytics (~> 3.7)
   - FirebaseInstanceID (1.0.9)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -44,6 +49,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Core
+  - Firebase/Database
   - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
@@ -54,11 +60,12 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
   FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
+  FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 318feaf92554f1946e6451397d4ddc495d7e4621
+PODFILE CHECKSUM: c889cda2225a96740a4a49896e09ac2ecaaa4264
 
 COCOAPODS: 1.2.0

@@ -19,6 +19,13 @@
 		DC8D45AE1EA126D800CD6BE2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45AD1EA126D800CD6BE2 /* SettingsController.swift */; };
 		DC8D45B41EA14D5000CD6BE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8D45B31EA14D5000CD6BE2 /* GoogleService-Info.plist */; };
 		DC8D45B71EA1699300CD6BE2 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45B61EA1699300CD6BE2 /* HomeController.swift */; };
+		DC8D45BC1EA1959600CD6BE2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45BB1EA1959600CD6BE2 /* DataService.swift */; };
+		DC8D45BE1EA195BC00CD6BE2 /* PostCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45BD1EA195BC00CD6BE2 /* PostCellController.swift */; };
+		DC8D45C01EA1A9DA00CD6BE2 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45BF1EA1A9DA00CD6BE2 /* Product.swift */; };
+		DC8D45C21EA1DE2C00CD6BE2 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45C11EA1DE2C00CD6BE2 /* ButtonView.swift */; };
+		DC8D45C41EA1DE6900CD6BE2 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45C31EA1DE6900CD6BE2 /* ProductView.swift */; };
+		DC8D45C61EA1DE7900CD6BE2 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45C51EA1DE7900CD6BE2 /* TabItemView.swift */; };
+		DC8D45C81EA1DEF100CD6BE2 /* TabBarContView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D45C71EA1DEF100CD6BE2 /* TabBarContView.swift */; };
 		FE96863D8E80EF01E346180E /* Pods_ecommerceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCD31C65D24D6457CE5F28A /* Pods_ecommerceUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +73,13 @@
 		DC8D45B51EA14DDD00CD6BE2 /* ecommerce-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecommerce-Bridging-Header.h"; sourceTree = "<group>"; };
 		DC8D45B61EA1699300CD6BE2 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		DC8D45B81EA1796800CD6BE2 /* ecommerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ecommerce.entitlements; sourceTree = "<group>"; };
+		DC8D45BB1EA1959600CD6BE2 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		DC8D45BD1EA195BC00CD6BE2 /* PostCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellController.swift; sourceTree = "<group>"; };
+		DC8D45BF1EA1A9DA00CD6BE2 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		DC8D45C11EA1DE2C00CD6BE2 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		DC8D45C31EA1DE6900CD6BE2 /* ProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		DC8D45C51EA1DE7900CD6BE2 /* TabItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
+		DC8D45C71EA1DEF100CD6BE2 /* TabBarContView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarContView.swift; sourceTree = "<group>"; };
 		EF8D551AE546971FED85A610 /* Pods-ecommerceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ecommerceTests/Pods-ecommerceTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,7 +160,9 @@
 		DC8D457C1EA1237D00CD6BE2 /* ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				DC8D45B91EA1956000CD6BE2 /* Services */,
 				DC8D45B81EA1796800CD6BE2 /* ecommerce.entitlements */,
+				DC8D45BA1EA1956A00CD6BE2 /* Model */,
 				DC8D45AC1EA125F500CD6BE2 /* Controller */,
 				DC8D45AB1EA125ED00CD6BE2 /* View */,
 				DC8D457D1EA1237D00CD6BE2 /* AppDelegate.swift */,
@@ -180,6 +196,10 @@
 		DC8D45AB1EA125ED00CD6BE2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DC8D45C11EA1DE2C00CD6BE2 /* ButtonView.swift */,
+				DC8D45C31EA1DE6900CD6BE2 /* ProductView.swift */,
+				DC8D45C51EA1DE7900CD6BE2 /* TabItemView.swift */,
+				DC8D45C71EA1DEF100CD6BE2 /* TabBarContView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,8 +210,25 @@
 				DC8D457F1EA1237D00CD6BE2 /* SignInController.swift */,
 				DC8D45AD1EA126D800CD6BE2 /* SettingsController.swift */,
 				DC8D45B61EA1699300CD6BE2 /* HomeController.swift */,
+				DC8D45BD1EA195BC00CD6BE2 /* PostCellController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		DC8D45B91EA1956000CD6BE2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DC8D45BB1EA1959600CD6BE2 /* DataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DC8D45BA1EA1956A00CD6BE2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC8D45BF1EA1A9DA00CD6BE2 /* Product.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,10 +520,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8D45C81EA1DEF100CD6BE2 /* TabBarContView.swift in Sources */,
 				DC8D45B71EA1699300CD6BE2 /* HomeController.swift in Sources */,
+				DC8D45C41EA1DE6900CD6BE2 /* ProductView.swift in Sources */,
+				DC8D45BE1EA195BC00CD6BE2 /* PostCellController.swift in Sources */,
 				DC8D45801EA1237D00CD6BE2 /* SignInController.swift in Sources */,
+				DC8D45C01EA1A9DA00CD6BE2 /* Product.swift in Sources */,
 				DC8D45AE1EA126D800CD6BE2 /* SettingsController.swift in Sources */,
 				DC8D457E1EA1237D00CD6BE2 /* AppDelegate.swift in Sources */,
+				DC8D45C21EA1DE2C00CD6BE2 /* ButtonView.swift in Sources */,
+				DC8D45C61EA1DE7900CD6BE2 /* TabItemView.swift in Sources */,
+				DC8D45BC1EA1959600CD6BE2 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

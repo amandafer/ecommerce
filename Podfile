@@ -8,6 +8,7 @@ target 'ecommerce' do
   # Pods for ecommerce
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'SwiftKeychainWrapper'

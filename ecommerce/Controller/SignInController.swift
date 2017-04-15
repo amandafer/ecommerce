@@ -39,6 +39,11 @@ class SignInController: UIViewController {
                 print("Successufully authenticated with Firebase.")
                 // Sets the keychain
                 if let user = user {
+                    // save the details in firebase database
+                    let userData = ["provider": credential.provider]
+                    DataService.dataService.createFirebaseDBUser(uid: user.uid, userData: userData)
+                    
+                    // save the username and password to keychain
                     KeychainWrapper.standard.set(user.uid, forKey: "uid")
                 }
             }
