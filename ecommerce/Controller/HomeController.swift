@@ -16,6 +16,27 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
+    // Loads the products to the table view
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        DataService.dataService.REF_PRODUCTS.observe(.value, with: { (snapshot) in
+            // Gets an array of products from database
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snap in snapshot {
+                    // For each product gets its individual data
+                    if let productData = snap.value as? Dictionary<String, AnyObject> {
+                        let id = snap.key
+                        let product = Product(productID: id, productData: productData)
+                        self.products.append(product)
+                    }
+                }
+            }
+            self.tableView.reloadData()
+        })
+    }
+    
     // Table view functions
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count;
@@ -38,42 +59,9 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return PostCellController()
         }
     }
-
-    // Loads the products to the table view
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        DataService.dataService.REF_PRODUCTS.observe(.value, with: { (snapshot) in
-            // Gets an array of products from database
-            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                for snap in snapshot {
-                    // For each product gets its individual data
-                    if let productData = snap.value as? Dictionary<String, AnyObject> {
-                        let id = snap.key
-                        let product = Product(productID: id, productData: productData)
-                        self.products.append(product)
-                    }
-                }
-            }
-            self.tableView.reloadData()
-        })
-    }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // Go to determined segue when the row is pressed
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //performSegue(withIdentifier: "product_details", sender: self)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
