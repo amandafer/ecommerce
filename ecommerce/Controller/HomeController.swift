@@ -64,4 +64,34 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //performSegue(withIdentifier: "product_details", sender: self)
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+                case "product_details":
+                    let productDetailController = segue.destination as! ProductDetailsController
+                    
+                    if let indexPath = self.tableView.indexPathForSelectedRow {
+                        let product = productAtIndexPath(indexPath: indexPath as NSIndexPath)
+                        let img = product.imageUrl
+                        
+                        if let image = HomeController.imageCache.object(forKey: img as NSString) {
+                            productDetailController.configureProdDetails(product: product, img: image)
+                        } else {
+                            productDetailController.configureProdDetails(product: product)
+                        }
+                    }
+                
+                default: break
+            }
+        }
+    
+    }
+    
+    func productAtIndexPath(indexPath: NSIndexPath) -> Product {
+        let prod = products[indexPath.row]
+        return prod
+    }
+    
 }

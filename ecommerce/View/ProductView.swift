@@ -42,7 +42,7 @@ class ProductView: UIView {
             shadowLayer.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: self.cornerRadius).cgPath
             shadowLayer.layer.shadowOffset = CGSize(width: 0, height: 0)
             shadowLayer.layer.shadowOpacity = 0.5
-            shadowLayer.layer.shadowRadius = 2
+            shadowLayer.layer.shadowRadius = 1
             shadowLayer.layer.masksToBounds = true
             shadowLayer.clipsToBounds = false
         

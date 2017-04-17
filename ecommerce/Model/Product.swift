@@ -14,6 +14,7 @@ class Product {
     private var _name: String!
     private var _price: Double!
     private var _description: String!
+    private var _comments: [String]?
     
     var productID: String {
         return _productID
@@ -30,12 +31,16 @@ class Product {
     var description: String {
         return _description
     }
+    var comments: [String] {
+        return _comments!
+    }
     
-    init(name: String, img: String, price: Double, desc: String) {
+    init(name: String, img: String, price: Double, desc: String, comments: [String]? = nil) {
         self._name = name
         self._image = img
         self._price = price
         self._description = desc
+        self._comments = comments
     }
     
     init(productID: String, productData: Dictionary<String, AnyObject>) {
@@ -52,6 +57,9 @@ class Product {
         }
         if let desc = productData["description"] as? String {
             self._description = desc
+        }
+        if let comments = productData["comments"] as? [String] {
+            self._comments = comments
         }
     }
 }
