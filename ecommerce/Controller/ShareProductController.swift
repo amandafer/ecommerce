@@ -8,30 +8,60 @@
 
 import UIKit
 import Social
+import FBSDKShareKit
+import FirebaseStorage
 
 class ShareProductController: UIViewController {
     @IBOutlet weak var shareView: ProductView!
     @IBOutlet weak var titleView: ProductView!
     
-    @IBAction func shareFacebookBtn(_ sender: Any) {
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
-            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText("Share on Facebook")
-            self.present(facebookSheet, animated: true, completion: nil)
-        } else {
-            self.shareAlert(title: "Accounts", message: "Please login to a Facebook account to share.")
-        }
+    var product: Product!
+    var url: String!
+    var imageDownloadURL: String!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        createURLs()
     }
-
+    
+    // Share product dynamic url with facebook
+    @IBAction func shareFacebookBtn(_ sender: Any) {
+        let content: FBSDKShareLinkContent = FBSDKShareLinkContent()
+        content.contentURL = URL(string: self.url)
+        content.contentTitle = product.name
+        content.contentDescription = product.description
+        content.imageURL = URL(string: self.imageDownloadURL)
+        FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+    }
+    
+    // Share product dynamic url with twitter
     @IBAction func shareTwitterBtn(_ sender: Any) {
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             twitterSheet.setInitialText("Share on Twitter")
             self.present(twitterSheet, animated: true, completion: nil)
         } else {
-            self.shareAlert(title: "Accounts", message: "Please login to a Twitter account to share.")
+            self.shareAlert(title: "Accounts", message: "Please login to Twitter or download the app to share.")
         }
     }
+    
+    // Create the url to be shared and a downloadable image url
+    func createURLs() {
+        let productID = product.productID
+        url = "https://ecommerce-ec4b6.firebaseio.com/products/" + productID
+        
+        let gsURL = product.imageUrl
+        let ref = FIRStorage.storage().reference(forURL: gsURL)
+        ref.downloadURL(completion: { (URL, error) -> Void in
+            if (error != nil) {
+                print("CONSOLE: Unable to retrieve image downloadable URL.")
+            } else {
+                if let downloadURL = URL?.absoluteString {
+                    self.imageDownloadURL = downloadURL
+                }
+            }
+        })
+    }
+    
     
     func shareAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -45,8 +75,7 @@ class ShareProductController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch: UITouch? = touches.first
-        //location is relative to the current view
-        // do something with the touched point
+        
         if (touch?.view != shareView) && (touch?.view != titleView) {
             self.hideView()
         }
@@ -56,16 +85,4 @@ class ShareProductController: UIViewController {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }

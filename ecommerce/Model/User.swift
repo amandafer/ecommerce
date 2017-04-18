@@ -40,19 +40,19 @@ class User {
     }
     
     
-    init(userID: String, userData: Dictionary<String, AnyObject>) {
+    init(userID: String, userData: Dictionary<String, String>) {
         self._userID = userID
         
-        if let name = userData["name"] as? String {
+        if let name = userData["name"] {
             self._name = name
         }
-        if let img = userData["profile_picture"] as? String {
+        if let img = userData["picture"] {
             self._profilePicture = img
         }
-        if let email = userData["email"] as? String {
+        if let email = userData["email"] {
             self._email = email
         }
-        if let provider = userData["provider"] as? String {
+        if let provider = userData["provider"] {
             self._provider = provider
         }
     }

@@ -15,7 +15,6 @@ class CommentsController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var bottomConstraintForKeyboard: NSLayoutConstraint!
     
-    
     var product: Product!
     
     @IBAction func addCommentBtn(_ sender: Any) {

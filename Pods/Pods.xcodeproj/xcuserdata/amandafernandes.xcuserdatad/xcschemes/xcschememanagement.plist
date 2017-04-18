@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FBSDKShareKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,12 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6846149059F3172660B94B3EC9C04DD3</key>
+		<key>564CD809BF4DFAFEF32E336D8D12D334</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C7A9D2986A06511AD182BC8A8F44B5E</key>
+		<key>6846149059F3172660B94B3EC9C04DD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C263031A1C10C9E423E84CD5B34F07D2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DD176C953B853516B8029490D100E464</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E08A343F7B1303E7E9209B4B50EC35BB</key>
+		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

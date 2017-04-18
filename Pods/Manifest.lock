@@ -9,6 +9,8 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.20.2):
     - FBSDKCoreKit
+  - FBSDKShareKit (4.20.2):
+    - FBSDKCoreKit
   - Firebase/Auth (3.15.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
@@ -53,6 +55,7 @@ PODS:
 DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
+  - FBSDKShareKit
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -63,6 +66,7 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: 82eac696eb6157da5f4266c3a241f00e9bd72471
   FBSDKLoginKit: 2211bede07c83391349eacc1fd86cf6d9289ce38
+  FBSDKShareKit: ca9b22264ea49a896dafb2467c1a4f72aa41996f
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
@@ -74,6 +78,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 5bf0af167edfebf5f67d58a04c70765b39b28481
+PODFILE CHECKSUM: 98af98c1085d549aefed2fb6384dd0e7eb857aa9
 
 COCOAPODS: 1.2.0

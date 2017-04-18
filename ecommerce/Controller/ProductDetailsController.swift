@@ -65,10 +65,17 @@ class ProductDetailsController: UIViewController {
     
     // Pass information to comments segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "comments" {
-            let destination = segue.destination as! CommentsController
-            
-            destination.product = product
+        if let identifier = segue.identifier {
+            switch identifier {
+                case "comments":
+                    let destination = segue.destination as! CommentsController
+                    destination.product = product
+                case "share":
+                    let destination = segue.destination as! ShareProductController
+                    destination.product = product
+                default:
+                    break
+            }
         }
     }
 }
