@@ -26,6 +26,8 @@ class SignInController: UIViewController {
                 print("CONSOLE: User cancelled authentication with Facebook.")
             } else {
                 print("CONSOLE: Logged in")
+                let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                self.firebaseAuth(credential)
                 
                 // Get user data
                 let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name, email, picture.type(large)"])
@@ -36,11 +38,6 @@ class SignInController: UIViewController {
                         self.userData = result as! NSDictionary
                     }
                 })
-            
-            
-                let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                self.firebaseAuth(credential)
-                self.showHomeView()
             }
         }
     }
@@ -53,6 +50,9 @@ class SignInController: UIViewController {
                 print("CONSOLE: Successufully authenticated with Firebase.")
                 // Sets the keychain
                 if let user = user {
+                    // save the username and password to keychain
+                    KeychainWrapper.standard.set(user.uid, forKey: KEY_UID)
+                    
                     // save the details in firebase database
                     if let name = self.userData["name"] as? String {
                         if let email = self.userData["email"] as? String {
@@ -61,12 +61,11 @@ class SignInController: UIViewController {
                             if let picture = url as? String {
                                 let data = ["provider": credential.provider, "name": name, "email": email, "picture": picture]
                                 DataService.dataService.createFirebaseDBUser(uid: user.uid, userData: data)
+                                
+                                self.showHomeView()
                             }
                         }
                     }
-                    
-                    // save the username and password to keychain
-                    KeychainWrapper.standard.set(user.uid, forKey: KEY_UID)
                 }
             }
         })

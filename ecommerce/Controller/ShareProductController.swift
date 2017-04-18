@@ -30,13 +30,14 @@ class ShareProductController: UIViewController {
         content.contentTitle = product.name
         content.contentDescription = product.description
         content.imageURL = URL(string: self.imageDownloadURL)
-        FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+        FBSDKShareDialog.show(from: self, with: content as FBSDKSharingContent, delegate: nil)
     }
     
     // Share product dynamic url with twitter
     @IBAction func shareTwitterBtn(_ sender: Any) {
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            twitterSheet.add(URL(fileURLWithPath: url))
             twitterSheet.setInitialText("Share on Twitter")
             self.present(twitterSheet, animated: true, completion: nil)
         } else {
@@ -44,7 +45,7 @@ class ShareProductController: UIViewController {
         }
     }
     
-    // Create the url to be shared and a downloadable image url
+    // Create the product url and a downloadable image
     func createURLs() {
         let productID = product.productID
         url = "https://ecommerce-ec4b6.firebaseio.com/products/" + productID
