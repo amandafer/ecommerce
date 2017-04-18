@@ -27,9 +27,10 @@ class ShareProductController: UIViewController {
     @IBAction func shareFacebookBtn(_ sender: Any) {
         let content: FBSDKShareLinkContent = FBSDKShareLinkContent()
         content.contentURL = URL(string: self.url)
-        content.contentTitle = product.name
-        content.contentDescription = product.description
-        content.imageURL = URL(string: self.imageDownloadURL)
+        // Deprecated in April 18, 2017
+        //content.contentTitle = product.name
+        //content.contentDescription = product.description
+        //content.imageURL = URL(string: self.imageDownloadURL)
         FBSDKShareDialog.show(from: self, with: content as FBSDKSharingContent, delegate: nil)
     }
     

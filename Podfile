@@ -6,6 +6,7 @@ target 'ecommerce' do
   use_frameworks!
 
   # Pods for ecommerce
+  pod 'Firebase'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
