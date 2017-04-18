@@ -11,18 +11,18 @@ import FirebaseDatabase
 
 class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    
+
     var products = [Product]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     // Loads the products to the table view
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewDidAppear(_ animated: Bool) {
         // Do any additional setup after loading the view.
         DataService.dataService.REF_PRODUCTS.observe(.value, with: { (snapshot) in
             // Gets an array of products from database
+            self.products = []
+            
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshot {
                     // For each product gets its individual data
@@ -42,6 +42,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return products.count;
     }
     
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let product = products[indexPath.row]
         
@@ -58,11 +59,6 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             return PostCellController()
         }
-    }
-    
-    // Go to determined segue when the row is pressed
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "product_details", sender: self)
     }
     
     

@@ -12,10 +12,12 @@ import FBSDKLoginKit
 import SwiftKeychainWrapper
 
 class SignInController: UIViewController {
+    
+    var userData = NSDictionary()
 
     @IBAction func signInFBBtn(_ sender: Any) {
         let facebookLogin = FBSDKLoginManager()
-        let permissions = ["email"]
+        let permissions = ["public_profile", "email"]
         
         facebookLogin.logIn(withReadPermissions: permissions, from: self) { (result, error) in
             if (error != nil) {
@@ -24,6 +26,18 @@ class SignInController: UIViewController {
                 print("CONSOLE: User cancelled authentication with Facebook.")
             } else {
                 print("CONSOLE: Logged in")
+                
+                // Get user data
+                let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name, email, picture.type(large)"])
+                graphRequest.start(completionHandler: { (connection, result, error) -> Void in
+                    if ((error) != nil) {
+                        print("CONSOLE: Error retriving user's facebook data.")
+                    } else {
+                        self.userData = result as! NSDictionary
+                    }
+                })
+            
+            
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.firebaseAuth(credential)
                 self.showHomeView()
@@ -40,11 +54,19 @@ class SignInController: UIViewController {
                 // Sets the keychain
                 if let user = user {
                     // save the details in firebase database
-                    let userData = ["provider": credential.provider]
-                    DataService.dataService.createFirebaseDBUser(uid: user.uid, userData: userData)
+                    if let name = self.userData["name"] as? String {
+                        if let email = self.userData["email"] as? String {
+                            
+                            let url = (((self.userData.object(forKey: "picture") as AnyObject).object(forKey: "data") as AnyObject).object(forKey: "url"))
+                            if let picture = url as? String {
+                                let data = ["provider": credential.provider, "name": name, "email": email, "picture": picture]
+                                DataService.dataService.createFirebaseDBUser(uid: user.uid, userData: data)
+                            }
+                        }
+                    }
                     
                     // save the username and password to keychain
-                    KeychainWrapper.standard.set(user.uid, forKey: "uid")
+                    KeychainWrapper.standard.set(user.uid, forKey: KEY_UID)
                 }
             }
         })
@@ -62,7 +84,7 @@ class SignInController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let _ = KeychainWrapper.standard.string(forKey: "uid") {
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
             self.showHomeView()
         }
     }

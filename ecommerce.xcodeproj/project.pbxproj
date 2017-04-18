@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		C0D55B8669958CFFB8950FE3 /* Pods_ecommerceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE30563403D85080DE578F56 /* Pods_ecommerceTests.framework */; };
 		DA3BB08B9072394BEC957730 /* Pods_ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B652C601D9AC026C82177BEF /* Pods_ecommerce.framework */; };
+		DC401E9C1EA55FE500B22118 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC401E9B1EA55FE500B22118 /* Constants.swift */; };
+		DC401E9E1EA5995F00B22118 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC401E9D1EA5995F00B22118 /* User.swift */; };
 		DC42C3671EA4508800B3BA62 /* ProductDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42C3661EA4508800B3BA62 /* ProductDetailsController.swift */; };
 		DC42C3691EA4810500B3BA62 /* ShareProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42C3681EA4810500B3BA62 /* ShareProductController.swift */; };
 		DC42C36B1EA4854100B3BA62 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42C36A1EA4854100B3BA62 /* ImageView.swift */; };
+		DC42C36D1EA54C6D00B3BA62 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42C36C1EA54C6D00B3BA62 /* CommentsController.swift */; };
+		DC42C36F1EA54F7700B3BA62 /* CommentsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42C36E1EA54F7700B3BA62 /* CommentsCellController.swift */; };
 		DC8D457E1EA1237D00CD6BE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D457D1EA1237D00CD6BE2 /* AppDelegate.swift */; };
 		DC8D45801EA1237D00CD6BE2 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D457F1EA1237D00CD6BE2 /* SignInController.swift */; };
 		DC8D45831EA1237D00CD6BE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8D45811EA1237D00CD6BE2 /* Main.storyboard */; };
@@ -59,9 +63,13 @@
 		C8B001E7C827F25095C008DF /* Pods-ecommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ecommerce/Pods-ecommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		CE30563403D85080DE578F56 /* Pods_ecommerceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ecommerceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CD5EB05FE9F99B30189EE0 /* Pods-ecommerceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ecommerceTests/Pods-ecommerceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DC401E9B1EA55FE500B22118 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DC401E9D1EA5995F00B22118 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DC42C3661EA4508800B3BA62 /* ProductDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsController.swift; sourceTree = "<group>"; };
 		DC42C3681EA4810500B3BA62 /* ShareProductController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareProductController.swift; sourceTree = "<group>"; };
 		DC42C36A1EA4854100B3BA62 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		DC42C36C1EA54C6D00B3BA62 /* CommentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
+		DC42C36E1EA54F7700B3BA62 /* CommentsCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsCellController.swift; sourceTree = "<group>"; };
 		DC8D457A1EA1237D00CD6BE2 /* ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8D457D1EA1237D00CD6BE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ecommerce/AppDelegate.swift; sourceTree = "<group>"; };
 		DC8D457F1EA1237D00CD6BE2 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
@@ -142,6 +150,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC401E9A1EA55FB200B22118 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DC401E9B1EA55FE500B22118 /* Constants.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		DC8D45711EA1237C00CD6BE2 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +185,7 @@
 		DC8D457C1EA1237D00CD6BE2 /* ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				DC401E9A1EA55FB200B22118 /* Util */,
 				DC8D45B91EA1956000CD6BE2 /* Services */,
 				DC8D45B81EA1796800CD6BE2 /* ecommerce.entitlements */,
 				DC8D45BA1EA1956A00CD6BE2 /* Model */,
@@ -223,6 +240,8 @@
 				DC8D45BD1EA195BC00CD6BE2 /* PostCellController.swift */,
 				DC42C3661EA4508800B3BA62 /* ProductDetailsController.swift */,
 				DC42C3681EA4810500B3BA62 /* ShareProductController.swift */,
+				DC42C36C1EA54C6D00B3BA62 /* CommentsController.swift */,
+				DC42C36E1EA54F7700B3BA62 /* CommentsCellController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				DC8D45BF1EA1A9DA00CD6BE2 /* Product.swift */,
+				DC401E9D1EA5995F00B22118 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -545,8 +565,12 @@
 				DC8D457E1EA1237D00CD6BE2 /* AppDelegate.swift in Sources */,
 				DC8D45C21EA1DE2C00CD6BE2 /* ButtonView.swift in Sources */,
 				DC42C3691EA4810500B3BA62 /* ShareProductController.swift in Sources */,
+				DC42C36D1EA54C6D00B3BA62 /* CommentsController.swift in Sources */,
 				DC8D45C61EA1DE7900CD6BE2 /* TabItemView.swift in Sources */,
 				DC8D45BC1EA1959600CD6BE2 /* DataService.swift in Sources */,
+				DC42C36F1EA54F7700B3BA62 /* CommentsCellController.swift in Sources */,
+				DC401E9C1EA55FE500B22118 /* Constants.swift in Sources */,
+				DC401E9E1EA5995F00B22118 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

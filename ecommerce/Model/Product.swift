@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import FirebaseDatabase
+import SwiftKeychainWrapper
 
 class Product {
     private var _productID: String!
@@ -14,7 +16,8 @@ class Product {
     private var _name: String!
     private var _price: Double!
     private var _description: String!
-    private var _comments: [String]?
+    private var _comments: [[String: String]]!
+    private var _prodRef: FIRDatabaseReference!
     
     var productID: String {
         return _productID
@@ -31,11 +34,11 @@ class Product {
     var description: String {
         return _description
     }
-    var comments: [String] {
-        return _comments!
+    var comments: [[String: String]] {
+        return _comments
     }
     
-    init(name: String, img: String, price: Double, desc: String, comments: [String]? = nil) {
+    init(name: String, img: String, price: Double, desc: String, comments: [[String: String]]) {
         self._name = name
         self._image = img
         self._price = price
@@ -58,8 +61,21 @@ class Product {
         if let desc = productData["description"] as? String {
             self._description = desc
         }
-        if let comments = productData["comments"] as? [String] {
+        if let comments = productData["comments"] as? [[String: String]] {
             self._comments = comments
+        } else {
+            self._comments = []
         }
+        
+        _prodRef = DataService.dataService.REF_PRODUCTS.child(_productID)
+    }
+    
+    func addComment(comment: String) {
+        var dict = Dictionary<String, String>()
+        dict["text"] = comment
+        dict["author"] = KeychainWrapper.standard.string(forKey: KEY_UID)
+            
+        _comments.append(dict)
+        _prodRef.child("comments").setValue(_comments)
     }
 }

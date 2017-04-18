@@ -21,17 +21,18 @@ class ProductDetailsController: UIViewController {
     var image: UIImage!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
         self.productImage.image = image
         self.productName.text = product.name
         self.productPrice.text = String(format: "R$ %.02f", arguments: [product.price])
         self.productDetails.text = product.description
-        self.numberOfComments.text = String(product.comments.count)
         
         if (product.comments.count == 1) {
             self.commentLabel.text = "comment"
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.numberOfComments.text = String(product.comments.count)
     }
     
     func configureProdDetails(product: Product, img: UIImage? = nil) {
@@ -59,6 +60,15 @@ class ProductDetailsController: UIViewController {
                     }
                 }
             })
+        }
+    }
+    
+    // Pass information to comments segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "comments" {
+            let destination = segue.destination as! CommentsController
+            
+            destination.product = product
         }
     }
 }
