@@ -43,12 +43,13 @@ class CommentsController: UIViewController, UITableViewDelegate, UITableViewData
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? CommentsCellController {
-            let comment = product.comments[indexPath.row]
-            cell.configureCell(comment: comment)
-            return cell
-        } else {
-            return CommentsCellController()
+            if let comment = product.comments[indexPath.row] as? [String: String] {
+                cell.configureCell(comment: comment)
+                return cell
+            }
         }
+        
+        return CommentsCellController()
     }
     
     func keyboardWillShow(sender: NSNotification) {

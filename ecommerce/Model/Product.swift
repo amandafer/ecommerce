@@ -16,7 +16,7 @@ class Product {
     private var _name: String!
     private var _price: Double!
     private var _description: String!
-    private var _comments: [[String: String]]!
+    private var _comments: Array<Any>!
     private var _prodRef: FIRDatabaseReference!
     
     var productID: String {
@@ -34,11 +34,14 @@ class Product {
     var description: String {
         return _description
     }
-    var comments: [[String: String]] {
-        return _comments
+    var comments: Array<Any> {
+        if _comments != nil {
+            return _comments
+        }
+        return []
     }
     
-    init(name: String, img: String, price: Double, desc: String, comments: [[String: String]]) {
+    init(name: String, img: String, price: Double, desc: String, comments: Array<Any>) {
         self._name = name
         self._image = img
         self._price = price
@@ -62,9 +65,9 @@ class Product {
             self._description = desc
         }
         if let comments = productData["comments"] as? [[String: String]] {
-            self._comments = comments
+            self._comments = comments as Array<Any>
         } else {
-            self._comments = []
+            self._comments = nil
         }
         
         _prodRef = DataService.dataService.REF_PRODUCTS.child(_productID)
