@@ -14,6 +14,7 @@ It was designed using Sketch and later on developed in Xcode. MVC design pattern
 - Fastlane
 - Unit/UI Testing
 
+#### Copyrights
 
 Copyright© 2017 by Amanda Fernandes
 
