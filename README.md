@@ -11,3 +11,5 @@ It was designed using Sketch and later on developed in Xcode. MVC design pattern
 - Cart Menu
 - Search
 - Login through Google
+- Fastlane
+- Unit/UI Testing
